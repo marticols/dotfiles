@@ -1,0 +1,18 @@
+! Fonts {{{
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.hintstyle: hintfull
+Xft.dpi: 220
+! }}}
+
+URxvt*foreground: #f7f7f7
+URxvt*depth: 32
+URxvt*background: rgba:0000/0000/0200/c800
+URxvt*transparent: true
+URxvt*shading: 15
+URxvt.perl-ext-common: clipboard
+URxvt.keysym.Control-c: perl:clipboard:copy
+URxvt.keysym.Control-v: perl:clipboard:paste
+URxvt*scrollBar: false
+URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=25

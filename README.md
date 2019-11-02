@@ -4,7 +4,7 @@
 
 ### Basic installation
 ```bash
-$ apt-get install sudo vim intel-microcode i3 xorg
+$ apt-get install sudo vim intel-microcode i3 xorg git
 ```
 
 ```bash
@@ -37,6 +37,11 @@ Sources
 - https://blog.deimos.fr/2015/04/28/debian-jessie-and-macbookpro-13-2015121-with-kernel-4/
 
 ### Screen resolution errors
+
+```bash
+sudo dpkg-reconfigure console-setup 
+```
+
 ```bash
 $ vi /etc/X11/xorg.conf.d/90-monitor.conf
 Section "Monitor"
@@ -45,22 +50,20 @@ Section "Monitor"
 EndSection
 ```
 
-```bash
-$ vi ~/.Xresources
-! Fonts {{{
-Xft.antialias: true
-Xft.hinting: true
-Xft.rgba: rgb
-Xft.hintstyle: hintfull
-Xft.dpi: 220
-! }}}
-
-Rxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=25
-
-$ xrdb ~/.Xresources
-```
-
 Sources
 - https://wiki.debian.org/InstallingDebianOn/Apple/MacBookPro/Early-2015-13-inch
   
-  
+### I3 and URxvt
+
+```bash
+$ sudo apt install xsel i3blocks 
+$ cp i3/fontawesome.otf /usr/share/fonts/fontawesome.otf
+$ cp -r i3 ~/.config/i3
+```
+
+### URxvt
+
+```bash
+$ cp urxvt/.Xresources ~/.Xresources
+$ cp urxvt/ext/clipboard ~/.urxvt/ext/clipboard
+```
