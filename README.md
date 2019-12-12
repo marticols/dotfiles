@@ -52,7 +52,7 @@ EndSection
 
 Sources
 - https://wiki.debian.org/InstallingDebianOn/Apple/MacBookPro/Early-2015-13-inch
-  
+
 ### I3 and URxvt
 
 ```bash
@@ -67,3 +67,13 @@ $ cp -r i3 ~/.config/i3
 $ cp urxvt/.Xresources ~/.Xresources
 $ cp urxvt/ext/clipboard ~/.urxvt/ext/clipboard
 ```
+
+### Vim
+
+```bash
+$ mkdir .vim
+$ cp vim/.vimrc  ~/.vimrc
+```
+
+Enter vim and run :PlugInstall.
+
