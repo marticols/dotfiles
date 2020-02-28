@@ -31,6 +31,7 @@ Sources
 $ sudo wget -O /lib/firmware/brcm/brcmfmac43602-pcie.bin https://git.kernel.org/cgit/linux/kernel/git/firmware/linux-firmware.git/plain/brcm/brcmfmac43602-pcie.bin
 ```
 Follow https://wiki.debian.org/WiFi/HowToUse#connman to connect to the wifi.
+Follow https://unix.stackexchange.com/questions/283722/how-to-connect-to-wifi-from-command-line to connect to wifi without connman.
 
 Sources
 - https://wiki.debian.org/WiFi/HowToUse#connman
