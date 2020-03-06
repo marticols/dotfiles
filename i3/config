@@ -197,5 +197,9 @@ client.focused_inactive #282828 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #3c3836 #3c3836 #a89984 #292d2e   #222222
 client.urgent           #cc241d #cc241d #ebdbb2 #cc241d   #cc241d
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
 client.background       #ffffff
+
+# Default floating windows
+# For getting the class run xprop | grep -i 'class'
+for_window [class="jetbrains-studio"] floating enable
+for_window [title="Android Emulator - Pixel_XL_API_29:5554"] floating enable

@@ -1,6 +1,14 @@
 " Automatically wrap text that extends beyond the screen length.
 set wrap
 
+" Config airline
+let g:airline_powerline_fonts=1
+let g:airline_theme='gruvbox'
+let g:airline#extensions#tabline#enabled= 2
+
+" Show lines after EOF
+set scrolloff=10
+
 " Show lines number
 set relativenumber
 
@@ -13,9 +21,6 @@ set background=dark
 
 " Inherit indentation from previous lines
 set autoindent
-
-" Detect indentation of the file
-autocmd CursorHold * DetectIndent
 
 " Highlight matching pairs of brackets. Use the '%' character to jump between them.
 set matchpairs+=<:>
@@ -40,11 +45,13 @@ autocmd CursorHold * if (&filetype == 'netrw' && &number == 0) | set relativenum
 " Plugins
 call plug#begin('~/.vim/plugged')
 
-Plug 'digitaltoad/vim-pug'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'ciaranm/detectindent'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'wincent/command-t'
 Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
+
