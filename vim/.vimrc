@@ -1,6 +1,9 @@
 " Automatically wrap text that extends beyond the screen length.
 set wrap
 
+" Jump previous file
+nnoremap <Leader>b :e#<Enter>
+
 " Config airline
 let g:airline_powerline_fonts=1
 let g:airline_theme='gruvbox'
