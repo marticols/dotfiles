@@ -4,16 +4,15 @@ set wrap
 " Jump previous file
 nnoremap <Leader>b :e#<Enter>
 
-" Config airline
-let g:airline_powerline_fonts=1
-let g:airline_theme='gruvbox'
-let g:airline#extensions#tabline#enabled= 2
+" Enable lightline
+set laststatus=2
 
 " Show lines after EOF
 set scrolloff=10
 
 " Show lines number
 set relativenumber
+set nu rnu
 
 " Turn on syntax highlighting.
 syntax on
@@ -45,6 +44,9 @@ let g:netrw_banner = 0
 set updatetime=100
 autocmd CursorHold * if (&filetype == 'netrw' && &number == 0) | set relativenumber | endif
 
+" Search for visualy selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 
@@ -52,8 +54,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'wincent/command-t'
 Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
