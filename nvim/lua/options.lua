@@ -11,6 +11,10 @@ opt.showmode = false
 --Automatically wrap text that extends beyond the screen length.
 opt.wrap = true
 
+-- Disable swapfiles
+g.noswapfile = true
+g.nobackup = true
+
 --Share clipboard [OSX]
 opt.clipboard = 'unnamed'
 
@@ -32,8 +36,15 @@ g.mapleader = " "
 -- Hidde netrw banner
 g.netrw_banner = 0
 
+-- Show relative lines at netrw
 vim.api.nvim_command([[
 set updatetime=100
 autocmd CursorHold * if (&filetype == 'netrw' && &number == 0) | set relativenumber | endif
 ]])
 
+-- Change lsp diagnostics signs
+local signs = { Error = " ", Warning = " ", Hint = "ﯧ ", Information = " " }
+for type, icon in pairs(signs) do
+  local hl = "LspDiagnosticsSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end

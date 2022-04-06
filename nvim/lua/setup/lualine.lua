@@ -8,7 +8,12 @@ require('lualine').setup {
     },
     -- Change components
     sections = {
-        lualine_x = {'encoding'},
+        lualine_x = {
+            {
+                'diagnostics',
+                sources = { 'nvim_lsp' }
+            }
+        },
         lualine_y = {'fileformat'}
     }
 }

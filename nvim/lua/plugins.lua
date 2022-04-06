@@ -24,7 +24,6 @@ local packer = require('packer').startup(function()
     }
     -- lsp
     use 'neovim/nvim-lspconfig'
-    use 'glepnir/lspsaga.nvim'
     -- autocompletion
     -- more info: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
     use 'hrsh7th/nvim-cmp'
@@ -35,8 +34,8 @@ end)
 
 require('setup.tokyonight')
 require('setup.treesitter')
+require('setup.telescope')
 require('setup.lualine')
 require('setup.lsp')
-require('setup.lspsaga')
 
 return packer
