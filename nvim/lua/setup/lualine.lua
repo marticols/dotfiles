@@ -1,19 +1,15 @@
 require('lualine').setup {
     options = {
-        -- Disable seperators
-        section_separators = '',
-        component_separators = '',
         -- Set the statusline theme
         theme = 'tokyonight'
     },
     -- Change components
     sections = {
-        lualine_x = {
-            {
-                'diagnostics',
-                sources = { 'nvim_lsp' }
-            }
-        },
-        lualine_y = {'fileformat'}
+        lualine_a = {'mode'},
+        lualine_b = {'branch', 'diff', { 'diagnostics', sources = { 'nvim_lsp' } } },
+        lualine_c = {'filename'},
+        lualine_x = {'filetype'},
+        lualine_y = {},
+        lualine_z = {'location'}
     }
 }

@@ -3,7 +3,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'dartls', 'pyright'}
+local servers = { 'dartls' }
 local lspconfig = require'lspconfig'
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -11,6 +11,15 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+
+-- Docker servers
+lspconfig.pyright.setup{
+  before_init = function(params)
+    params.processId = vim.NIL
+  end,
+  cmd = require'lspcontainers'.command('pyright'),
+  root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
+}
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'

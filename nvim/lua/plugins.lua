@@ -24,6 +24,10 @@ local packer = require('packer').startup(function()
     }
     -- lsp
     use 'neovim/nvim-lspconfig'
+    use {
+      'lspcontainers/lspcontainers.nvim',
+      branch = 'master'
+    }
     -- autocompletion
     -- more info: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
     use 'hrsh7th/nvim-cmp'
