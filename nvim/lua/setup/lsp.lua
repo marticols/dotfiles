@@ -7,18 +7,36 @@ local servers = { 'dartls' }
 local lspconfig = require'lspconfig'
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
-    -- on_attach = my_custom_on_attach,
     capabilities = capabilities,
   }
 end
 
--- Docker servers
-lspconfig.pyright.setup{
-  before_init = function(params)
-    params.processId = vim.NIL
-  end,
-  cmd = require'lspcontainers'.command('pyright'),
-  root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
+
+-- Custom setups
+get_jedi_cmd = function()
+  -- Build the image with github.com/marticols/nvim_lsp_dockerfiles
+  working_dir = vim.fn.getcwd()
+  python_path = working_dir
+  tag = "jedi_lsp"
+  if working_dir == '/Users/marticols/Projects/to_do' then
+    python_path = working_dir .. "/app"
+    tag = "to_do_lsp"
+  end
+  return {
+    "docker",
+    "run",
+    "-i",
+    "--rm",
+    "--env",
+    "PYTHONPATH=" .. python_path,
+    "--workdir=" .. working_dir,
+    "--volume=" .. working_dir .. ":" .. working_dir,
+    tag
+  }
+end
+
+lspconfig.jedi_language_server.setup{
+  cmd = get_jedi_cmd(),
 }
 
 -- Set completeopt to have a better completion experience

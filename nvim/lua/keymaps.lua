@@ -14,7 +14,7 @@ vim.api.nvim_set_keymap('n', '<leader>t', [[<cmd>Texplore<CR>]], {noremap=true, 
 -- Open new vertical tab with explorer
 vim.api.nvim_set_keymap('n', '<leader>v', [[<cmd>Vexplore<CR>]], {noremap=true, silent=true})
 -- Close file
-vim.api.nvim_set_keymap('n', '<leader>q', [[<cmd>q<CR>]], {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<leader>q', [[<cmd>wq<CR>]], {noremap=true, silent=true})
 
 -- Open definition in new tab
 vim.api.nvim_set_keymap('n', '<leader>d', [[<cmd>tab split | lua vim.lsp.buf.definition()<CR>]], {noremap=true, silent=true})
