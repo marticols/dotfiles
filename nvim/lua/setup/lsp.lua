@@ -11,32 +11,41 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-
--- Custom setups
-get_jedi_cmd = function()
-  -- Build the image with github.com/marticols/nvim_lsp_dockerfiles
-  working_dir = vim.fn.getcwd()
-  python_path = working_dir
-  tag = "jedi_lsp"
-  if working_dir == '/Users/marticols/Projects/to_do' then
-    python_path = working_dir .. "/app"
+get_pylsp_tag = function()
+  workdir = vim.fn.getcwd()
+  tag = "pylsp_lsp"
+  if workdir == '/Users/marticols/Projects/to_do' then
     tag = "to_do_lsp"
   end
+  return tag
+end
+
+get_pylsp_pythonpath = function()
+  workdir = vim.fn.getcwd()
+  pythonpath = workdir
+  if workdir == '/Users/marticols/Projects/to_do' then
+    pythonpath = workdir .. "/app"
+  end
+  return pythonpath
+end
+
+-- Custom setups
+get_pylsp_cmd = function()
   return {
     "docker",
     "run",
     "-i",
     "--rm",
     "--env",
-    "PYTHONPATH=" .. python_path,
-    "--workdir=" .. working_dir,
-    "--volume=" .. working_dir .. ":" .. working_dir,
-    tag
+    "PYTHONPATH=" .. get_pylsp_pythonpath(),
+    "--workdir=" .. workdir,
+    "--volume=" .. workdir .. ":" .. workdir,
+    get_pylsp_tag()
   }
 end
 
-lspconfig.jedi_language_server.setup{
-  cmd = get_jedi_cmd(),
+lspconfig.pylsp.setup{
+  cmd = get_pylsp_cmd(),
 }
 
 -- Set completeopt to have a better completion experience
