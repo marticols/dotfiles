@@ -1,9 +1,9 @@
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { 'dartls' }
+local servers = { 'dartls', 'tsserver', 'stylelint_lsp' }
 local lspconfig = require'lspconfig'
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {

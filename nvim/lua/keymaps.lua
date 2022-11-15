@@ -14,19 +14,17 @@ vim.api.nvim_set_keymap('n', '<leader>t', [[<cmd>Texplore<CR>]], {noremap=true, 
 -- Open new vertical tab with explorer
 vim.api.nvim_set_keymap('n', '<leader>v', [[<cmd>Vexplore<CR>]], {noremap=true, silent=true})
 -- Close file
-vim.api.nvim_set_keymap('n', '<leader>q', [[<cmd>wq<CR>]], {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<leader>q', [[<cmd>q!<CR>]], {noremap=true, silent=true})
 
 -- Open definition in new tab
 vim.api.nvim_set_keymap('n', '<leader>d', [[<cmd>tab split | lua vim.lsp.buf.definition()<CR>]], {noremap=true, silent=true})
 -- Show error in a floating window
-vim.api.nvim_set_keymap('n', '<leader>D', [[<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>]], {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<leader>D', [[<cmd>lua vim.diagnostic.open_float()<CR>]], {noremap=true, silent=true})
 -- Show doumentation of the object
 vim.api.nvim_set_keymap('n', '<leader>H', [[<cmd>lua vim.lsp.buf.hover()<CR>]], {noremap=true, silent=true})
--- Show options to solve the error
-vim.api.nvim_set_keymap('n', '<leader>a', [[<cmd>lua vim.lsp.buf.code_action()<CR>]], {noremap=true, silent=true})
 -- Show references of the object
 vim.api.nvim_set_keymap('n', '<leader>r', [[<cmd>lua vim.lsp.buf.references()<CR>]], {noremap=true, silent=true})
 -- Rename the object
 vim.api.nvim_set_keymap('n', '<leader>R', [[<cmd>lua vim.lsp.buf.rename()<CR>]], {noremap=true, silent=true})
 -- Format the document
-vim.api.nvim_set_keymap('n', '<leader>F', [[<cmd>lua vim.lsp.buf.formatting()<CR>]], {noremap=true, silent=true})
+vim.api.nvim_set_keymap('n', '<leader>F', [[<cmd>Neoformat<CR>]], {noremap=true, silent=true})

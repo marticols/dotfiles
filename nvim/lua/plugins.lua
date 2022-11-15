@@ -30,6 +30,8 @@ local packer = require('packer').startup(function()
     use 'hrsh7th/cmp-nvim-lsp'
     use 'saadparwaiz1/cmp_luasnip'
     use 'L3MON4D3/LuaSnip'
+    -- formatting
+    use 'sbdchd/neoformat'
 end)
 
 require('setup.tokyonight')
@@ -37,5 +39,6 @@ require('setup.treesitter')
 require('setup.telescope')
 require('setup.lualine')
 require('setup.lsp')
+
 
 return packer

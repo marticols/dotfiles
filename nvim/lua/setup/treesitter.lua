@@ -5,7 +5,7 @@ require('nvim-treesitter.configs').setup {
         -- App stuff
         'dart',
         -- Web stuff
-        'html', 'css', 'javascript',
+        'html', 'css', 'javascript', 'typescript',
         -- Serialized data files
         'json', 'toml', 'yaml',
         -- Scripting stuff
